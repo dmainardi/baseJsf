@@ -23,11 +23,16 @@
  */
 package com.dmainardi.baseJsf.business.auth.entity;
 
+import com.dmainardi.baseJsf.business.auth.control.Role;
 import java.io.Serializable;
+import java.util.Set;
+import static java.util.stream.Collectors.toSet;
 import javax.persistence.Column;
 import javax.persistence.Entity;
 import javax.persistence.Id;
+import javax.persistence.ManyToOne;
 import javax.validation.constraints.NotEmpty;
+import javax.validation.constraints.NotNull;
 
 /**
  *
@@ -35,13 +40,15 @@ import javax.validation.constraints.NotEmpty;
  */
 @Entity
 public class UserApp implements Serializable {
+
     @Id
-    @NotEmpty
-    private String username;
-    
-    @NotEmpty
+    private @NotEmpty String username;
+
     @Column(nullable = false)
-    private String password;
+    private @NotEmpty String password;
+    
+    @ManyToOne(optional = false)
+    private @NotNull GroupApp groupApp;
 
     public UserApp() {
     }
@@ -61,5 +68,20 @@ public class UserApp implements Serializable {
     public void setPassword(String password) {
         this.password = password;
     }
-    
+
+    public GroupApp getGroupApp() {
+        return groupApp;
+    }
+
+    public void setGroupApp(GroupApp groupApp) {
+        this.groupApp = groupApp;
+    }
+
+    public Set<Role> getRoles() {
+        return groupApp.getRoles().stream().collect(toSet());
+    }
+
+    public Set<String> getRolesAsStrings() {
+        return getRoles().stream().map(Role::name).collect(toSet());
+    }
 }

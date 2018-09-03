@@ -21,46 +21,29 @@
  * OUT OF OR IN CONNECTION WITH THE SOFTWARE OR THE USE OR OTHER DEALINGS IN
  * THE SOFTWARE.
  */
-package com.dmainardi.baseJsf.business.auth.entity;
+package com.dmainardi.baseJsf.presentation;
 
-import com.dmainardi.baseJsf.business.auth.control.Role;
-import java.io.Serializable;
-import java.util.HashSet;
-import java.util.Set;
-import javax.persistence.ElementCollection;
-import javax.persistence.Entity;
-import static javax.persistence.EnumType.STRING;
-import javax.persistence.Enumerated;
-import static javax.persistence.FetchType.EAGER;
-import javax.persistence.Id;
-import javax.validation.constraints.NotNull;
+import javax.annotation.PostConstruct;
+import javax.enterprise.context.RequestScoped;
+import javax.inject.Inject;
+import javax.inject.Named;
 
 /**
  *
  * @author Davide Mainardi <ingmainardi at live.com>
  */
-@Entity
-public class GroupApp implements Serializable {
+@Named
+@RequestScoped
+public class Cancellami {
+    @Inject
+    com.dmainardi.baseJsf.business.Cancellami cancellami;
     
-    @Id
-    private String name;
-    
-    @ElementCollection(fetch = EAGER)
-    private @NotNull @Enumerated(STRING) Set<Role> roles = new HashSet<>();
-
-    public GroupApp() {
-    }
-
-    public String getName() {
-        return name;
-    }
-
-    public void setName(String name) {
-        this.name = name;
-    }
-
-    public Set<Role> getRoles() {
-        return roles;
+    @PostConstruct
+    public void init() {
+        cancellami.populate();
     }
     
+    public void maina() {
+        
+    }
 }

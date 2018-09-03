@@ -21,12 +21,13 @@
  * OUT OF OR IN CONNECTION WITH THE SOFTWARE OR THE USE OR OTHER DEALINGS IN
  * THE SOFTWARE.
  */
-package com.dmainardi.baseJsf.business.auth.entity;
+package com.dmainardi.baseJsf.business.auth.control;
 
 /**
  *
  * @author Davide Mainardi <ingmainardi at live.com>
  */
-public class RoleApp {
-    
+public enum Role {
+    BASIC,
+    ADVANCED;
 }

@@ -43,8 +43,8 @@ import javax.security.enterprise.identitystore.Pbkdf2PasswordHash;
         )
 )
 @DatabaseIdentityStoreDefinition(
-        dataSourceLookup = "java:comp/DefaultDataSource",
-        callerQuery = "select password from custom_form_with_jsf_user where username = ?",
+        dataSourceLookup = "jdbc/postgres_base",
+        callerQuery = "select password from userapp where username = ?",
         groupsQuery = "select name from custom_form_with_jsf_group where username = ?",
         hashAlgorithm = Pbkdf2PasswordHash.class,
         hashAlgorithmParameters = {
