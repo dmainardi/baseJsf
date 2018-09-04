@@ -75,7 +75,7 @@ public class LoginPresenter {
                 facesContext.addMessage(null, new FacesMessage(FacesMessage.SEVERITY_ERROR, "Authentication failed", null));
                 break;
             case SUCCESS:
-                facesContext.addMessage(null, new FacesMessage(FacesMessage.SEVERITY_INFO, "Authentication successfull", null));
+                //facesContext.addMessage(null, new FacesMessage(FacesMessage.SEVERITY_INFO, "Authentication successfull", null));
                 break;
             default:
                 throw new AssertionError();

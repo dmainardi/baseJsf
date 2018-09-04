@@ -1,12 +1,19 @@
 <?xml version='1.0' encoding='UTF-8' ?>
 <!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
 <html xmlns="http://www.w3.org/1999/xhtml"
-      xmlns:h="http://xmlns.jcp.org/jsf/html">
+      xmlns:h="http://xmlns.jcp.org/jsf/html"
+      xmlns:c="http://xmlns.jcp.org/jsp/jstl/core">
     <h:head>
         <title>Facelet Title</title>
     </h:head>
     <h:body>
         <h1>Landing page, everybody can see this page</h1>
+        <c:if test="#{not empty request.userPrincipal}">
+            <p>Logged-in as #{request.userPrincipal.name}</p>
+            <h:form>
+                <h:commandButton value="Logout" action="#{logoutPresenter.submit()}" />
+            </h:form>
+        </c:if>
         <h:button value="Go to the private zone for basic user" outcome="securedBasic/welcome" />
         <h:button value="Go to the private zone for advanced user" outcome="securedAdvanced/welcome" />
     </h:body>

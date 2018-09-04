@@ -1,7 +1,7 @@
 #!/bin/sh
 
 readonly APP_NAME=base
-readonly IP_ADDRESS=192.168.1.9
+readonly IP_ADDRESS=172.25.52.2
 readonly POSTGRESQL_JDBC_DRIVER=postgresql-42.2.5.jar
 readonly DB_NAME="${APP_NAME}"
 readonly DB_USER_NAME="${APP_NAME}"
