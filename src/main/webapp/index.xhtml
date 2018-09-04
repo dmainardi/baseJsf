@@ -14,6 +14,10 @@
                 <h:commandButton value="Logout" action="#{logoutPresenter.submit()}" />
             </h:form>
         </c:if>
+        <c:if test="#{empty request.userPrincipal}">
+            <h:button value="Create new user" outcome="createUser" />
+        </c:if>
+        
         <h:button value="Go to the private zone for basic user" outcome="securedBasic/welcome" />
         <h:button value="Go to the private zone for advanced user" outcome="securedAdvanced/welcome" />
     </h:body>

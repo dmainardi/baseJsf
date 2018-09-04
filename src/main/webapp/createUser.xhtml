@@ -1,0 +1,27 @@
+<?xml version='1.0' encoding='UTF-8' ?>
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+<html xmlns="http://www.w3.org/1999/xhtml"
+      xmlns:h="http://xmlns.jcp.org/jsf/html">
+    <h:head>
+        <title>Create new user</title>
+    </h:head>
+    <h:body>
+        <h:messages />
+        <h:form>
+            <h:outputLabel for="username" value="Username" />
+            <h:inputText id="username" value="#{createUserPresenter.username}" />
+            <h:message for="username" />
+            <br />
+            <h:outputLabel for="password" value="Password" />
+            <h:inputSecret id="password" value="#{createUserPresenter.password}" />
+            <h:message for="password" />
+            <br />
+            <h:outputLabel for="passwordRepeated" value="Repeat password" />
+            <h:inputSecret id="passwordRepeated" value="#{createUserPresenter.passwordRepeated}" />
+            <h:message for="passwordRepeated" />
+            <br />
+            <h:commandButton value="Create user" action="#{createUserPresenter.create()}" />
+        </h:form>
+    </h:body>
+</html>
+
