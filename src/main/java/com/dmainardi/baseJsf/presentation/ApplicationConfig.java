@@ -45,7 +45,7 @@ import javax.security.enterprise.identitystore.Pbkdf2PasswordHash;
 @DatabaseIdentityStoreDefinition(
         dataSourceLookup = "jdbc/postgres_base",
         callerQuery = "select password from userapp where username = ?",
-        groupsQuery = "select name from custom_form_with_jsf_group where username = ?",
+        groupsQuery = "select roles from groupapp_roles join userapp on userapp.groupapp_name = groupapp_roles.groupapp_name where userapp.username = ?",
         hashAlgorithm = Pbkdf2PasswordHash.class,
         hashAlgorithmParameters = {
             "Pbkdf2PasswordHash.Iterations=3072",

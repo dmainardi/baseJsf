@@ -27,7 +27,6 @@ import com.dmainardi.baseJsf.business.auth.control.Role;
 import com.dmainardi.baseJsf.business.auth.entity.GroupApp;
 import com.dmainardi.baseJsf.business.auth.entity.UserApp;
 import java.io.Serializable;
-import java.math.BigInteger;
 import java.util.HashMap;
 import java.util.Map;
 import javax.ejb.Stateless;

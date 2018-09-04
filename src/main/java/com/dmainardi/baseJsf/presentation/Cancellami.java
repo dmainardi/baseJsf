@@ -23,9 +23,7 @@
  */
 package com.dmainardi.baseJsf.presentation;
 
-import javax.annotation.PostConstruct;
 import javax.enterprise.context.RequestScoped;
-import javax.inject.Inject;
 import javax.inject.Named;
 
 /**
@@ -35,13 +33,6 @@ import javax.inject.Named;
 @Named
 @RequestScoped
 public class Cancellami {
-    @Inject
-    com.dmainardi.baseJsf.business.Cancellami cancellami;
-    
-    @PostConstruct
-    public void init() {
-        cancellami.populate();
-    }
     
     public void maina() {
         
