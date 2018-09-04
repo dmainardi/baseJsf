@@ -28,11 +28,20 @@
     
     <security-constraint>
         <web-resource-collection>
-            <web-resource-name>secured</web-resource-name>
-            <url-pattern>/secured/*</url-pattern>
+            <web-resource-name>Basic secured</web-resource-name>
+            <url-pattern>/securedBasic/*</url-pattern>
         </web-resource-collection>
         <auth-constraint>
             <role-name>BASIC</role-name>
+        </auth-constraint>
+    </security-constraint>
+    <security-constraint>
+        <web-resource-collection>
+            <web-resource-name>Advanced secured</web-resource-name>
+            <url-pattern>/securedAdvanced/*</url-pattern>
+        </web-resource-collection>
+        <auth-constraint>
+            <role-name>ADVANCED</role-name>
         </auth-constraint>
     </security-constraint>
     <security-role>
