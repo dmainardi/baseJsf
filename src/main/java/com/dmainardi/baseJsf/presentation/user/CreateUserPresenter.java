@@ -50,8 +50,10 @@ public class CreateUserPresenter {
     
     public void create() {
         if (!userAppService.isUsernamePresent(username)) {
-            if (password.equals(passwordRepeated))
+            if (password.equals(passwordRepeated)) {
                 userAppService.create(username, password);
+                facesContext.addMessage(null, new FacesMessage(FacesMessage.SEVERITY_INFO, "User created successfully", null));
+            }
             else
                 facesContext.addMessage(null, new FacesMessage(FacesMessage.SEVERITY_ERROR, "Passwords must be equal", null));
         }
